@@ -1,0 +1,11 @@
+1st attempt
+from mgix:alpine
+Copy -from=build user/share.html/ngix
+Expsoe 8000
+CMD["-g","-h","-deamon off"]
+
+
+FROM nginx:alpine
+COPY . user/share/nginx/html
+EXPOSE 80
+CMD["nginx","-g","-daemon off;"]

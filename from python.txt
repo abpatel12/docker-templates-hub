@@ -1,0 +1,31 @@
+FROM python 3.4
+WROKDIR app.py /
+COPY requiremtn.txt .
+RUN pip install -no cache 
+COPY . .
+EXPOSE 80
+CMD["python","app.py;"]
+
+
+FROM python:3.4 
+WORKDIR /app
+COPY reuiremtment.txt .
+RUN pip install -no-cache-dir -r requiremtn.txt 
+EXPOSE 80
+CMD["Python","app.py"]
+
+
+
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+EXPOSE 8000
+
+CMD ["python", "app.py"]
